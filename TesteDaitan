@@ -1,0 +1,61 @@
+package MC;
+java.util.scanner;
+
+public class Main 
+
+{
+
+	
+	public static void main(String[] args) 
+
+	{
+
+		Scanner input = new Scanner(System.in);
+		Main index = new Main();
+		System.out.println("Qual a quantia?");
+		valor = input.nextInt();
+		System.out.println("Qual a quantia?");
+		moeda = input.nextInt();
+
+	}
+
+	public int makeChange(int valor, int moeda) 
+
+	{
+
+		int cont_moeda = 0;
+		switch (moeda) 	
+
+	{
+
+		case 25:
+			cont_moeda = 10;
+			break;
+      
+		case 10:
+			cont_moeda = 5;
+			break;
+      
+		case 5:
+			cont_moeda = 1;
+			break;
+      
+		case 1:
+			return 1;
+
+	}
+
+		int res = 0;
+		for (int i = 0; i * moeda <= valor; i++) 
+
+	{
+
+			res += makeChange(valor - i * moeda, cont_moeda);
+
+	}
+
+		return res;
+
+	}
+
+}
